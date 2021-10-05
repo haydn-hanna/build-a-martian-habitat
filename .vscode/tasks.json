@@ -1,0 +1,59 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Submit Build a Habitat Image",
+            "type": "shell",
+            "command": "gcloud builds submit --tag gcr.io/build-a-habitat/buildahabitat",
+            "presentation": {
+                "reveal": "always"
+              }
+        },
+        {
+            "label": "Deploy Build a Habitat Service",
+            "type": "shell",
+            "command": "gcloud run deploy buildahabitat --image gcr.io/build-a-habitat/buildahabitat --platform managed --region us-central1 --allow-unauthenticated",
+            "presentation": {
+                "reveal": "always"
+              }
+        },
+        {
+            "label": "Delete Build a Habitat Image",
+            "type": "shell",
+            "command": "gcloud container images delete gcr.io/build-a-habitat/buildahabitat",
+            "presentation": {
+                "reveal": "always"
+              }
+        },
+        {
+            "label": "Delete Build a Habitat Service",
+            "type": "shell",
+            "command": "gcloud run services delete buildahabitat --platform managed --region us-central1",
+            "presentation": {
+                "reveal": "always"
+              }
+        },
+        {
+            "label": "Start Build a Habitat",
+            "type": "shell",
+            "command": "echo Build a Habitat Started ",
+            "dependsOrder": "sequence",
+            "dependsOn": ["Submit Build a Habitat Image", "Deploy Build a Habitat Service"]
+        },
+        {
+            "label": "Stop Build a Habitat",
+            "type": "shell",
+            "command": "echo Build a Habitat Stopped ",
+            "dependsOrder": "sequence",
+            "dependsOn": ["Delete Build a Habitat Image", "Delete Build a Habitat Service"]
+        },
+        {
+            "label": "Restart Build a Habitat",
+            "type": "shell",
+            "dependsOrder": "sequence",
+            "dependsOn": ["Stop Build a Habitat", "Start Build a Habitat"]
+        }
+    ]
+}

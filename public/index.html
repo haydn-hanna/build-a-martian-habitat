@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Build a Martian Habitat!</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="gameArea">
+        <div id="home-screen">
+            <img src='/images/build-a-habitat-logo.png'>
+            <div class="instructions">
+                <h1>Instructions</h1>
+                <p>The goal of the game is to build a habitat on Mars! Each time you answer a question correctly, a new piece of the habitat appears! First, enter your name and press 'Start Game'. Once you've started the game, press on the 'Answer a queestion!' button to start building your habitat!</p>
+            </div>
+            <br>
+            <p>What is your name?</p>
+            <input id="name" type='text'>
+            <button class="btn btn-warning" type="submit" onclick="startGame()">Start Game</button>
+            <!-- <a id='teacher-dashboard-link' onclick="showTeacherDashboard()">Teacher Dashboard</a> -->
+        </div>
+
+        <div id="gameBoard">
+            <img id="gameBoard-image" src=''>
+        </div>
+
+        <div id='teacher-dashboard'>
+            <div class='flex-container flex-direction-col' id='feedback-container'>
+
+            </div>
+            <!-- <button class='btn btn-warning' id='back-btn' onclick="showHomeScreen()">Back</button> -->
+        </div>
+    </div>
+
+    <div class='modal' id='questionModal'>
+        <!--Modal content -->
+        <div class="modal-content" id='questionModalContent'>
+            <div class="modal-body">
+                <!-- Multiple Choice Question -->
+                <div class="card form-check multiple-choice quiz-question">
+                    <div class="question-header" id='question-area'>
+
+                    </div>
+                    <hr>
+                    <div id='answer-area'>
+
+                    </div>
+                    <hr>
+                    <div id="answer-feedback-box">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <span class="close">&times;</span>
+    </div>
+
+
+    <div class="modal" id="certificate_modal">
+        <div class="modal-content">
+            <a href='images/certificate.png' class="btn btn-warning" id="btn-download-certificate" onclick="closeModal('certificate_modal')" download>Download</a>
+            <img id='certificate_image' src='images/certificate.png'>
+        </div>
+    </div>
+
+    <div id='footer'>
+        <img src="images/build-a-habitat-logo.png">
+        <div class="btn btn-warning" onclick="openQuestion()">Answer a question!</div>
+        <div id="spacer"></div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+<script lang="text/javascript" src="https://cdn.ably.io/lib/ably.min-1.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="student.js"></script>
+<script src="teacher.js"></script>
+<script src="global.js"></script>
+
+</html>
