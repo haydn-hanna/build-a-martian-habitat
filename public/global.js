@@ -1,9 +1,10 @@
 var allCorrect = 0;
-    var name="";
-    const socket = io();
-    var score = 0;
-    var awaiting_feedback = false;
-    var questions = [{
+var name="";
+const socket = io();
+var score = 0;
+var awaiting_feedback = false;
+    
+var questions = [{
         question: "Why might a company include a logo on their website?",
         answers: [{
             text: "It looks cool!",
@@ -55,10 +56,6 @@ var allCorrect = 0;
             text: "To capture the reader's attention",
             feedback: "Using all capitals or making the title larger can help to draw the reader's attention and make the title stand out from the other text on the page. However you need to be careful, as sometimes using all capitals makes it SEEM LIKE YOUR'RE YELLING!",
             correct: "correct"
-        }, {
-            text: "Option D",
-            feedback: "Option D feedback",
-            correct: "incorrect"
         }]
     }, {
         question: "Why might a designer use smaller lettering when sharing a lot of information?",

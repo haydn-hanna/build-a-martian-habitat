@@ -115,14 +115,15 @@ function closeModal(modalName) {
 function handleFeedback(feedback) {
     awaiting_feedback = false;
     var approved = feedback.approved;
+    var feedback_message = feedback.feedback
 
     if (approved) {
         score++;
-        answer_area.innerHTML = 'Well done! The teacher approved your answer!'
+        answer_area.innerHTML = 'Well done! The teacher approved your answer!<br><br>'+feedback_message
         feedback_box.innerHTML = ""
         showCloseBtn();
     }else{
-        feedback_box.innerHTML='Sorry, your teacher would like you to retry this answer!'
+        feedback_box.innerHTML='Sorry, your teacher would like you to retry this answer!<br><br>'+feedback_message
         var submit_button = document.getElementById('submit')
         console.log(submit_button.innerHTML)
         submit_button.disabled=false;
