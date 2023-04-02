@@ -5,4 +5,4 @@ This is a simple javascript game for students learning about Mars during my Outs
 
 This project makes use of socket.io so that students can submit answers to a teacher for feedback. You can access the teacher dashboard by typing 'Teacher' into the 'name' field when you start the game. You can easily connect to a database if you'd like more robust usernames and passwords to access the teacher dashboard. 
 
-The project is stored in a Dockerfile container so that it can be deployed on Google Cloud Run. 
+This game also makes use of the ChatGPT API to provide teachers with quick options for giving feedback to student's written answers. 
